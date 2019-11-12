@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_email_app/kar_app_bar.dart';
 import 'models/Designer.dart';
 import 'designer_list_item.dart';
 
@@ -16,17 +17,19 @@ class MyApp extends StatelessWidget {
       ),
       home: Scaffold(
         appBar: AppBar(
+          leading: Icon(Icons.menu),
           title: Text(
-            "DESIGNERS",
-            textAlign: TextAlign.center,
+            "DESIGNER",
             style: TextStyle(
-
             ),
           ),
-          leading: Icon(Icons.menu),
           centerTitle: true,
+          backgroundColor: Colors.red[900],
+
+
         ),
         body: ListView(
+          padding: EdgeInsets.only(top: 20),
           children: <Widget>[
             DesignerListItem(Designer("Amanda Murphy", canContact:false, profileImage:'profile_001.jpg', experienceYears: 5,)),
             DesignerListItem(Designer("Grace Hartzel", canContact:false, profileImage:'profile_002.jpg', experienceYears: 2,)),
@@ -44,16 +47,15 @@ class MyApp extends StatelessWidget {
             items: [
               BottomNavigationBarItem(icon: Icon(Icons.list), title: Text("Lista"),),
               BottomNavigationBarItem(icon: Icon(Icons.person), title: Text("User")),
+              BottomNavigationBarItem(icon: Icon(Icons.mic), title: Text("Grabar")),
             ]
         ),
-        floatingActionButton: Padding(
-          padding: const EdgeInsets.only(bottom: 70.0),
-          child: FloatingActionButton.extended(
-            onPressed: ()=> null,
-            label: Text("Actividad"),
-            icon: Icon(Icons.mic),
-            backgroundColor: Colors.blueAccent,
-          ),
+        floatingActionButton: FloatingActionButton.extended(
+          onPressed: ()=> null,
+          highlightElevation: 20,
+          label: Text("Actividad"),
+          icon: Icon(Icons.mic),
+          backgroundColor: Colors.blueAccent,
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
       )
